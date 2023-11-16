@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { moveRobot } from "./RobotController";
+import { moveRobot } from "./robotController";
 
 const mockExecuteCommands = jest.fn();
 const mockGetStatus = jest.fn();
