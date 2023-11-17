@@ -1,0 +1,20 @@
+- Los controladores y el archivo de enrutado no debería estar dentro del directorio de server, en este caso se podría
+haber hecho una separación por dominio y tener los controladores, modelos y rutas del robot en un mismo dominio
+
+../domains/robot/models
+../domains/robot/controllers
+../domains/robot/routers
+
+
+- Buena documentación del proyecto
+- Buen uso de swagger para documentar los endpoints
+- Buen comentario apuntando la necesidad de implementar un middleware para el manejo de errores, pero habría estado bien
+que ya hubiera esa implementación.
+- Buena bateria de tests, aunque yo soy partidario de separar los test del código
+- Buena definición del dominio en la nomenclatura del endpoint, aunque faltaría el contexto y la versión.
+
+    /api/v1/robot/move
+
+
+
+

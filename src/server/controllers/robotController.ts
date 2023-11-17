@@ -4,9 +4,11 @@ import { Robot } from "../../models/Robot";
 export const moveRobot = (req: Request, res: Response): void => {
   const robot: Robot = new Robot();
 
+  //Buen uso del try catch en el controlador
   try {
     const commands: string = req.body.commands;
 
+    // Este control debería haberse hecho previamente y en el controlar ya debería llegar el comando depurado
     if (typeof commands !== "string") {
       res.status(400).json({
         error: `Incorrect type of commands: ${typeof commands}. Must be an string`,
