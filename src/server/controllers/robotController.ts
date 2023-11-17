@@ -7,6 +7,12 @@ export const moveRobot = (req: Request, res: Response): void => {
   try {
     const commands: string = req.body.commands;
 
+    if (typeof commands !== "string") {
+      res.status(400).json({
+        error: `Incorrect type of commands: ${typeof commands}. Must be an string`,
+      });
+    }
+
     robot.executeCommands(commands);
     const status: string = robot.getStatus();
 
