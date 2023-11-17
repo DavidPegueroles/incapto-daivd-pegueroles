@@ -19,34 +19,63 @@ This project requires Node.js (v16 or above recommended) and npm (usually comes 
 ### Installing
 
 1. Clone the repository:
-   `git clone https://github.com/DavidPegueroles/incapto-daivd-pegueroles`
-2. Navigate to the project directory and install the project dependencies using:
-   `npm install`
-3. Build the TypeScript files with:
-   `npm run build`
 
-### Executing Program
+   `git clone https://github.com/DavidPegueroles/incapto-daivd-pegueroles`
+
+2. Navigate to the project directory and install the project dependencies using:
+
+   `npm install`
+
+3. Build the TypeScript files with:
+
+   `npm run build`
 
 ### Executing Program
 
 To run the program in production, follow these steps:
 
 1. Build the project if you haven't already:
+
    `npm run build`
+
 2. Start the server:
+
    `npm start`
+
    To run the program in development mode with hot reload:
+
    `npm run start:dev`
 
 ### Testing
 
 To run the test suite:
+
 `npm test`
+
 To continuously watch and run tests during development:
+
 `npm run test:watch`
+
 To generate and view test coverage reports:
+
 `npm run test:coverage`
 
 ## API Documentation
 
 Once the server is running, you can access the Swagger UI documentation at `http://localhost:3000/api-docs` to interact with the API.
+
+## Future Enhancements
+
+### Adding New Endpoints
+
+When expanding the API with new endpoints, follow the established patterns in the existing routes. Ensure that each new controller has corresponding Swagger documentation comments to maintain up-to-date API documentation.
+
+### Error Handling
+
+As the API grows, it's important to implement robust error handling:
+
+- **Not Found Handler**: Create a middleware that catches any unhandled routes and responds with a 404 Not Found status. This will manage requests to endpoints that don't exist.
+
+- **General Error Handler**: Set up a global error handling middleware at the end of the middleware stack. This will capture and handle any errors thrown during the request-response cycle, ensuring a consistent error response structure.
+
+These practices will contribute to a maintainable and scalable codebase as the API evolves.
