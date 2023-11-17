@@ -14,6 +14,15 @@ export class Robot {
     [key in Command]: () => void;
   };
 
+  // En mi opinión todos los constructores de clase deben ser parametrizados, siempre que sea possible, con valores
+  // default, en este caso nos permitiría tener un constructor ya preparado para la futura escalabilidad de la clase
+  //
+  // constructor( x: number = 0, y: number = 0 , direction: Direction = "N"){
+  //   this._x = x;
+  //   this._y = y;
+  //   this._direction = direction;
+  //   this._initialiseStrategies();
+  // }
   constructor() {
     this._x = 0;
     this._y = 0;
@@ -22,6 +31,9 @@ export class Robot {
   }
 
   public executeCommands(commands: string): void {
+    //Nunca debería ser responsibilidad del metodo que ejecuta los comandos, comprobar que los comandos que le llegan 
+    //son válidos, el control de errores debería realizarse previamente para asegurarnos que el robot siempre recibe los comandos
+    //apropiadosm, y en este caso añadiría que el robot debería ser capaz de interpretar los valores en minúsculas
     const validCommandList: Command[] = ["L", "R", "M"];
 
     commands.split("").forEach((command) => {
@@ -38,6 +50,7 @@ export class Robot {
     return `${this._x}:${this._y}:${this._direction}`;
   }
 
+  //Implementación muy inteligente para mover el robot, felicidades, aunque la nomenclatura no termina de convencerme
   private _initialiseStrategies(): void {
     this._moveStrategies = {
       N: () => {
